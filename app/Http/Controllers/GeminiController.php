@@ -13,8 +13,7 @@ class GeminiController extends Controller
 
     public function __construct()
     {
-        // $this->apiKey = Config::get('services.gemini.api_key');
-        $this ->apiKey = "AIzaSyDKyohSDhuooDC6fYbmoNe2QeelH_fqAUs";
+        $this->apiKey = env('SERVICES_GEMINI_API_KEY');
     }
 
     public function query($query)
