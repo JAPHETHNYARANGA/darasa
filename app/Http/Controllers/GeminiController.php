@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
-use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Config;
 
 class GeminiController extends Controller
 {
@@ -13,9 +14,7 @@ class GeminiController extends Controller
 
     public function __construct()
     {
-        
-        // $this->apiKey = 'AlzaSyB1aZ-g83LX7NKm3e9GCXrz8LtHcahN2kk';
-        $this->apiKey ='AIzaSyDKyohSDhuooDC6fYbmoNe2QeelH_fqAUs';
+        $this->apiKey = Config::get('services.gemini.api_key');
     }
 
     public function query($query)
