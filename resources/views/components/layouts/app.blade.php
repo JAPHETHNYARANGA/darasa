@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        {{ $slot }} <!-- This will render the Livewire component content -->
+        {{ $slot }} 
     </div>
 
     <livewire:scripts />
