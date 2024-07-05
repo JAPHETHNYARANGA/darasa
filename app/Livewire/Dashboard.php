@@ -29,8 +29,8 @@ class Dashboard extends Component
             $response = $geminiController->query($query);
 
             // Process the response
-            if (isset($response['contents'][0]['parts'][0]['text'])) {
-                $this->response = $response['contents'][0]['parts'][0]['text']; // Assuming response structure from Gemini API
+            if (isset($response['candidates'][0]['content']['parts'][0]['text'])) {
+                $this->response = $response['candidates'][0]['content']['parts'][0]['text'];
             } else {
                 $this->response = ['error' => 'Failed to fetch valid response from Gemini API'];
             }

@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Config;
 class GeminiController extends Controller
 {
     protected $apiKey;
-    protected $baseUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:';
-    protected $projectId = 'generateContent';
+    // protected $baseUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:';
 
     public function __construct()
     {
-        $this->apiKey = Config::get('services.gemini.api_key');
+        // $this->apiKey = Config::get('services.gemini.api_key');
+        $this ->apiKey = "AIzaSyDKyohSDhuooDC6fYbmoNe2QeelH_fqAUs";
     }
 
     public function query($query)
@@ -24,14 +24,17 @@ class GeminiController extends Controller
         }
 
         $client = new Client([
-            'base_uri' => $this->baseUrl,
+            'base_uri' => 'https://generativelanguage.googleapis.com/v1beta/', 
             'headers' => [
                 'Content-Type' => 'application/json',
             ],
         ]);
 
         try {
-            $response = $client->request('POST', "generateContent?key={$this->apiKey}", [
+            $response = $client->request('POST', 'models/gemini-1.5-flash:generateContent', [
+                'query' => [
+                    'key' => $this->apiKey,
+                ],
                 'json' => [
                     'contents' => [
                         [
@@ -50,4 +53,6 @@ class GeminiController extends Controller
             throw new \Exception('Failed to fetch response from Gemini API: ' . $e->getMessage());
         }
     }
+
+
 }
