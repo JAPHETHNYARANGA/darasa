@@ -23,8 +23,6 @@
 * start development server `php artisan serve`
 `
 
-## Demo
-[text](<../../../../Downloads/screen-capture (1).webm>)
 
 # Help
 Incase of any queries or concerns about the project , email `nyaranga4@gmail.com` with title as Gemini application.
